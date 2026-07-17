@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:TimeTrace.ViewModels"
+             x:Class="TimeTrace.Views.StatsView"
+             x:DataType="vm:StatsViewModel"
+             Padding="20"
+             Background="{StaticResource PageBgBrush}"
+             Foreground="{StaticResource TextPrimaryBrush}">
+  <StackPanel Spacing="15">
+    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+      <TextBlock Text="Log" FontSize="24" FontWeight="Bold"
+                 Foreground="{StaticResource TextPrimaryBrush}"/>
+      <Button Content="Refresh" Command="{Binding LoadStatsCommand}"
+              Background="{StaticResource SurfaceBgBrush}"
+              Foreground="{StaticResource TextPrimaryBrush}"/>
+      <Button Content="Reset" Command="{Binding ResetLogCommand}" Classes="danger"/>
+    </StackPanel>
+
+    <TextBox Text="{Binding RawLog}"
+             IsReadOnly="True"
+             AcceptsReturn="True"
+             FontFamily="Courier New"
+             FontSize="13"
+             Background="{StaticResource PanelBgBrush}"
+             Foreground="{StaticResource TextPrimaryBrush}"
+             BorderBrush="{StaticResource BorderDefaultBrush}"
+             BorderThickness="1"
+             Padding="10"
+             ScrollViewer.VerticalScrollBarVisibility="Auto"
+             ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+  </StackPanel>
+</UserControl>

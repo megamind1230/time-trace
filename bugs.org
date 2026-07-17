@@ -1,0 +1,37 @@
+* Bugs — TimeTrace
+
+** No visual validation feedback
+- *Severity:* Low
+- *Files:* ~ViewModels/TimerViewModel.cs:52-55, ~ViewModels/StopwatchViewModel.cs:22-24
+- *Description:* If TaskName is empty or (for timer) totalSeconds <= 0, StartTimer/StartStopwatch silently returns early. User sees no message or disabled-state hint.
+- *Fix:* Bind IsEnabled on Start buttons to a validation property, or show an inline error TextBlock.
+
+** CSV logging not available
+- *Severity:* Low
+- *File:* ~Services/TimeService.cs
+- *Description:* Log is stored in a human-readable pipe-delimited table format. No CSV export exists for spreadsheets/analysis.
+- *Fix:* Add a CSV export button in the Log view.
+
+** Timer accuracy drifts over long durations
+- *Severity:* Low
+- *File:* ~ViewModels/TimerViewModel.cs:56-71
+- *Description:* Timer uses 100ms interval ticks computing remaining = endTime - now. Over hours, scheduling jitter accumulates visibly.
+- *Fix:* Use a high-resolution timer or reduce tick to 50ms, or accept the cosmetic drift (fine for human-scale tracking).
+
+** Sound path assumes project-relative location
+- *Severity:* Low
+- *File:* ~ViewModels/TimerViewModel.cs:40-41
+- *Description:* SoundPath walks up from BaseDirectory with "../../../timer-sound.mp3". Works in development but may break after dotnet publish.
+- *Fix:* Copy timer-sound.mp3 to output directory via .csproj or resolve via known publish path.
+
+** Stopwatch: StopAndSave always available when not running
+- *Severity:* Low
+- *File:* ~Views/StopwatchView.axaml:28
+- *Description:* Reset button is disabled while running, but Stop button is disabled while not running — correct. However nothing prevents the user from clicking Reset after Stop (it saves nothing). Minor UX polish.
+- *Fix:* Disable Reset when no time has been accumulated.
+
+** No confirmation on log reset
+- *Severity:* Low
+- *File:* ~ViewModels/StatsViewModel.cs:27
+- *Description:* ResetLog permanently deletes the log file with no confirmation dialog.
+- *Fix:* Add a confirmation dialog before deleting.

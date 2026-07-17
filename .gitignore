@@ -1,0 +1,11 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.vs/
+*.nupkg
+[Dd]ebug/
+[Rr]elease/
+*.log

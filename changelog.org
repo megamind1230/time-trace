@@ -1,0 +1,31 @@
+* Changelog — TimeTrace
+
+** [2026-07-17] — v0.3.0 — Docs audit + .gitignore
+*** Added
+- .gitignore for .NET projects
+- plan-todos.org for future roadmap
+
+*** Changed
+- README.org: corrected data path (~/magnus/timetrace/timetrace.log), pipe-delimited format, full project structure, updated features
+- bugs.org: refreshed bugs to match current codebase (removed stale entries about deleted/refactored features)
+- changelog.org: tracking all updates
+- Logs directory now at ~/magnus/timetrace/logs/ for debug output
+
+** [2026-07-17] — v0.2.0 — Dark theme + bug fixes
+*** Added
+- Custom dark color palette (slate navy background, purple accent)
+- Global styles for nav buttons, primary/danger buttons, TextBox, ListBox
+- Log directory at ~/magnus/timetrace/logs/
+
+*** Fixed
+- Timer: duration values (Hours/Minutes/Seconds) now snapshotted on Start, preventing mid-timer value changes from corrupting the saved time
+
+*** Technical debt
+- Added baka annotations for fragile/ambiguous spots
+- Created bugs.org, changelog.org tracking docs
+
+** [2024] — v0.1.0 — Initial release
+- Timer, Stopwatch, Stats (raw log) views
+- Pipe-delimited persistence at ~/magnus/timetrace/timetrace.log with cumulative time tracking
+- MVVM with CommunityToolkit.Mvvm
+- Avalonia FluentTheme default styling

@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:TimeTrace.ViewModels"
+             x:Class="TimeTrace.Views.StopwatchView"
+             x:DataType="vm:StopwatchViewModel"
+             Padding="20"
+             Background="{StaticResource PageBgBrush}"
+             Foreground="{StaticResource TextPrimaryBrush}">
+  <StackPanel Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
+    <TextBlock Text="Stopwatch" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"
+               Foreground="{StaticResource TextPrimaryBrush}"/>
+
+    <TextBox Text="{Binding TaskName}" Watermark="Task name" FontSize="16"/>
+
+    <TextBlock Text="{Binding ElapsedTime}" FontSize="48" HorizontalAlignment="Center" FontWeight="Bold"
+               Foreground="{StaticResource AccentPurpleBrush}"/>
+
+    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+      <Button Content="Start" Command="{Binding StartStopwatchCommand}"
+              IsEnabled="{Binding !IsRunning}" Classes="primary"/>
+
+      <Button Content="Pause" Command="{Binding StopAndSaveCommand}"
+              IsEnabled="{Binding IsRunning}" Classes="danger"/>
+    </StackPanel>
+
+    <Button Content="Reset" Command="{Binding ResetCommand}"
+            IsEnabled="{Binding !IsRunning}"
+            HorizontalAlignment="Center"
+            Background="{StaticResource SurfaceBgBrush}"
+            Foreground="{StaticResource TextPrimaryBrush}"/>
+  </StackPanel>
+</UserControl>

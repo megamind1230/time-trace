@@ -1,0 +1,18 @@
+* Plan / TODOs — TimeTrace
+
+** Short-term (next session)
+- [ ] add visual validation feedback (disable Start or show message when TaskName empty)
+- [ ] add confirmation dialog before Reset in Log view
+- [ ] copy timer-sound.mp3 to output on publish so sound works after dotnet publish
+
+** Medium-term
+- [ ] aggregated statistics dashboard: sessions count, total time per tag, charts
+- [ ] CSV export button in Log view
+- [ ] elapsed time preview before starting timer/stopwatch
+- [ ] Timer accuracy: switch to high-resolution timer or use Stopwatch-based tick
+
+** Long-term / Stretch
+- [ ] dark/light theme toggle
+- [ ] convert nav buttons to tab-style UI (better visual state tracking)
+- [ ] edit/delete individual log entries from the UI
+- [ ] multi-day / weekly / monthly summary reports
